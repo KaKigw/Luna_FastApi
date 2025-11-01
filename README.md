@@ -1,7 +1,8 @@
-```markdown
+---
+
 # 🌙 Luna FastAPI Backend
 
-Modular FastAPI backend powering LunaVoice — designed for clarity, reproducibility, and patient-centered deployment. Built for hackathon teams and scalable health tools.
+Modular FastAPI backend powering **LunaVoice** — designed for clarity, reproducibility, and patient-centered deployment. Built for hackathon teams and scalable health tools.
 
 ---
 
@@ -9,24 +10,30 @@ Modular FastAPI backend powering LunaVoice — designed for clarity, reproducibi
 
 ### 1. Clone the repository
 
-```bash
+Clone the repo and navigate into the project folder:
+
+```
 git clone https://github.com/KaKigw/Luna_FastApi.git
 cd Luna_FastApi
 ```
 
 ### 2. Install dependencies
 
-```bash
+Install required Python packages:
+
+```
 pip install -r requirements.txt
 ```
 
 ### 3. Run locally
 
-```bash
+Start the FastAPI server:
+
+```
 uvicorn fastapi.src.app:app --reload
 ```
 
-Access Swagger UI at: [http://localhost:8000/docs](http://localhost:8000/docs)
+Visit `http://localhost:8000/docs` to explore the Swagger UI.
 
 ---
 
@@ -34,11 +41,11 @@ Access Swagger UI at: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 | Endpoint           | Method | Description                                      |
 |--------------------|--------|--------------------------------------------------|
-| `/generate_voice`  | POST   | Converts input text to speech using HF TTS      |
+| `/generate_voice`  | POST   | Converts input text to speech using Hugging Face TTS |
 | `/summarize_text`  | POST   | Summarizes input text using Gemini RAG          |
 | `/health_check`    | GET    | Confirms API is running                         |
 
-All endpoints accept and return JSON. See Swagger UI for schemas and testing.
+All endpoints accept and return JSON. Swagger UI provides schemas and testing interface.
 
 ---
 
@@ -52,7 +59,6 @@ Luna_FastApi/
 │       ├── rag_gemini.py   # Gemini-based summarization logic
 │       ├── tts_helpers.py  # TTS generation and caching
 ├── requirements.txt        # Dependencies (must be in root for HF Spaces)
-├── render.yaml             # Render deployment config (optional)
 ```
 
 ---
@@ -61,15 +67,17 @@ Luna_FastApi/
 
 ### ✅ Hugging Face Spaces
 
-- Type: `FastAPI`
-- Entry point: `fastapi/src/app.py`
+LunaVoice is deployed on Hugging Face Spaces using the FastAPI SDK.
+
+**Setup requirements:**
 - SDK: `fastapi`
-- Python version: pinned to `3.11.9` for FAISS compatibility
-- Ensure `requirements.txt` is in the root directory
+- Entry point: `fastapi/src/app.py`
+- Python version: `3.11.9` (for FAISS compatibility)
+- `requirements.txt` must be in the root directory
 
 ### ❌ Render
 
-Deployment to Render failed due to memory limitations. The free tier provides only **512MB RAM**, which was exceeded during runtime. Consider upgrading the plan or using Hugging Face Spaces for lightweight deployment.
+Deployment to Render failed due to memory limitations. The free tier provides only **512MB RAM**, which was exceeded during runtime. Hugging Face Spaces is recommended for lightweight deployment.
 
 ---
 
@@ -112,7 +120,8 @@ Deployment to Render failed due to memory limitations. The free tier provides on
 
 ## 📬 Contact
 
-For questions or contributions, reach out via GitHub Issues or fork the repo.
+For questions or contributions, open an issue or fork the repo on GitHub.
 
-```
+---
 
+Let me know if you want to add Gemini chunking strategy, caching logic, or a Hugging Face README for the Spaces UI.
